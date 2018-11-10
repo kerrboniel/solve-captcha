@@ -1,0 +1,146 @@
+  <CywScripts type="customizeyourweb.ArrayList">
+     <array type="Array">
+        <index0 type="customizeyourweb.Script">
+           <id type="number">1</id>
+           <actions type="customizeyourweb.ArrayList">
+              <array type="Array">
+                 <index0 type="customizeyourweb.InsertJSAction">
+                    <id type="number">1</id>
+                    <repetitionBehavior type="string"><![CDATA[RUN_ONCE_SUCCESSFULLY]]></repetitionBehavior>
+                    <jsCode type="string"><![CDATA[(function() {
+    'use strict';
+    var map=['255','35BB11BBBB13BB13B13BB13BB12BB13BB11BBBBB69','34BBBB10B3BB13BB12BB12BB12BB11BBB11BB13BBBBBB68','34BBBB10B3BB13BB12BB11BBB14BB13B9B3BB9BBBBB69','36BB12BBB11BBBB10BBBB10BB1BB9BBBBBBB12B13BB13BB69','33BBBBBB9BB13B13BBBBB14BB13BB12BB9B2BBB9BBBB70','35BBBB10BB12BB13BBBB10BB2BB9BB2BB9B2BB10BB1BB10BBBB69','33BBBBBBB13B13B13BB12BB12BB12BB12BB12BB72','35BBB10BB2BB9BB2BB9BB1BB10BBBB10BB2BB8BB3BB8BB2BB10BBBB69','35BBB11B2BB9BB2BB8BB3BB8BB2BB10BBBBB12BB12BB11BBB70','35BBB12BBB11BBBB11B1BB10BB1BB9BB2BB9BBBBBB8BB3BB7BB4BB67','34BBBBB9BB3BB8BB3B9B3BB8BBBBBB9BB3B8BB4B8BB3BB8BBBBB69','35BBBBBB8BB3B8BB12BB13BB13BB13BB13BB3B10BBBBB67','34BBBBB9BB3BB8BB3BB8B4BB7BB4BB7BB4BB6BB4BB7BB3BB8BBBBB69','33BBBBBBB8BB13B13BB13BBBBBB9BB13B13BB13BBBBBB68','34BBBBBB8BB13BB13B13BBBBBB9BB12BB13BB13BB72','255','36B12BBB13B14B14B13B14B14B11BBBBB69','33BBBBBB9B13B14B14BBBBBB8B14B14B13BBBBBB69','34BBBB10B3B14B13BB11BB15B14B13B10BBBB70','36BB12B1B11B1B11B2B10B3B9BBBBBB13B14B13B70','33BBBBBB9B13B14BBBBB14B14B14B13B10BBBB70','35BBB10BB13B13BBBBB10B3B9B4B9B4B9B3B11BBB70','33BBBBBB13B14B13B13B13B13B13B13B73','34BBBB10B3B9B4B9B3BB9BBBB10B4B9B4B9B3B10BBBB70','34BBBB10B3B9B4B9B4B9B3BB9BBBBB14B12BB10BBB71','36B13BB12B1B12B1B11B2B10B3B9BBBBBB9B4B8B5B68','33BBBB11B2B10B3B10B3B10BBBB10B4B9B4B9B3B9BBBBB70','35BBBB9BB4B8B13B14B13B14B14BB4B9BBBBB68','33BBBBB10B3BB8B5B8B5B8B5B7B5B8B4B9B3BB8BBBBB70','33BBBBBB9B13B14B14BBBBBB8B14B14B13BBBBBB69','33BBBBBB9B13B14B14BBBBBB8B14B14B13B74'].map(function(v){return v.split('B').map(function(vv){return ('0').repeat(vv/1)}).join('1')});
+    var mapp={0:'',1:'1',2:'2',3:'3',4:'4',5:'5',6:'6',7:'7',8:'8',9:'9',10:'A',11:'B',12:'C',13:'D',14:'E',15:'F'};
+    var img = document.getElementById('ccMain_imgCaptcha');
+    var canvas = document.createElement('canvas');
+    canvas.width = img.width;
+    canvas.height = img.height;
+    canvas.getContext('2d').drawImage(img, 0, 0, img.width, img.height);
+    for(var i=0 ; i<5 ; i++){
+        var gg = canvas.getContext('2d').getImageData(12+(28*i), 12, 15, 15).data.join('|').split('|').map(function(e,k){return Number.isInteger((k+1)/4)?'1-1':e;}).join('+').split('+1-1+').map(function(v){return eval(v)/3<160?'1':'0'});
+        var m = map.map(function(v,k){
+            return v.split('').map(function(vv,kk){
+                return vv==gg[kk]?'1':'';
+            }).join('').length;
+        });
+        document.getElementById('ccMain_txtEnterCode').value += mapp[m.indexOf(Math.max.apply(null,m))%16];
+    }
+	browser.storage.local.get(["u","p","b"]).then(function(v){
+		if(v.b=='a'){
+			var b = new Event('blur');
+			var c = new Event('click');
+			document.querySelectorAll('input[id*=ccMain_]')[0].value=v.u||'';
+			document.querySelectorAll('input[id*=ccMain_]')[0].dispatchEvent(b);
+			document.querySelectorAll('input[id*=ccMain_]')[1].value=v.p||'';
+			document.querySelectorAll('input[id*=ccMain_]')[1].dispatchEvent(b);
+			document.querySelector('#btnLogin').dispatchEvent(c);
+		}
+	});
+})();]]></jsCode>
+                 </index0>
+              </array>
+           </actions>
+           <disabled type="boolean">false</disabled>
+           <guiId type="string"><![CDATA[{aa901f71-4854-48dc-bb0f-f01f3e866db9}]]></guiId>
+           <lastEdited type="number">1538282406305</lastEdited>
+           <name type="string"><![CDATA[]]></name>
+           <targetWinDefinition type="customizeyourweb.TargetWinDefinition">
+              <includeUrlPatterns type="customizeyourweb.ArrayList">
+                 <array type="Array">
+                    <index0 type="customizeyourweb.UrlPattern">
+                       <string type="string"><![CDATA[https://onlinebooking.sand.telangana.gov.in/Masters/Home.aspx]]></string>
+                    </index0>
+                 </array>
+              </includeUrlPatterns>
+              <excludeUrlPatterns type="customizeyourweb.ArrayList">
+                 <array type="Array">
+                 </array>
+              </excludeUrlPatterns>
+           </targetWinDefinition>
+           <version type="string"><![CDATA[0.4.3.5Build201304032200]]></version>
+           <loadEventType type="string"><![CDATA[DOMContentLoaded]]></loadEventType>
+           <behaviorOnMutationEvent type="string"><![CDATA[RUN_ALWAYS]]></behaviorOnMutationEvent>
+        </index0>
+        <index1 type="customizeyourweb.Script">
+           <id type="number">2</id>
+           <actions type="customizeyourweb.ArrayList">
+              <array type="Array">
+                 <index0 type="customizeyourweb.ClickAction">
+                    <id type="number">1</id>
+                    <repetitionBehavior type="string"><![CDATA[RUN_ALWAYS]]></repetitionBehavior>
+                    <targetDefinition type="customizeyourweb.SimpleTargetDefinition">
+                       <targetOptional type="boolean">true</targetOptional>
+                       <attributeDefinitions type="Object">
+                          <text type="string"><![CDATA[NEW                                         BOOKING]]></text>
+                       </attributeDefinitions>
+                       <tagName type="string"><![CDATA[A]]></tagName>
+                    </targetDefinition>
+                    <modifierMask type="number">0</modifierMask>
+                    <button type="string"><![CDATA[0]]></button>
+                 </index0>
+              </array>
+           </actions>
+           <disabled type="boolean">false</disabled>
+           <guiId type="string"><![CDATA[{634f9457-4aad-413f-886c-9d816a46e505}]]></guiId>
+           <lastEdited type="number">1538282406312</lastEdited>
+           <name type="string"><![CDATA[]]></name>
+           <targetWinDefinition type="customizeyourweb.TargetWinDefinition">
+              <includeUrlPatterns type="customizeyourweb.ArrayList">
+                 <array type="Array">
+                    <index0 type="customizeyourweb.UrlPattern">
+                       <string type="string"><![CDATA[https://onlinebooking.sand.telangana.gov.in/Order/CustomerHome.aspx]]></string>
+                    </index0>
+                 </array>
+              </includeUrlPatterns>
+              <excludeUrlPatterns type="customizeyourweb.ArrayList">
+                 <array type="Array">
+                 </array>
+              </excludeUrlPatterns>
+           </targetWinDefinition>
+           <version type="string"><![CDATA[0.4.3.5Build201304032200]]></version>
+           <loadEventType type="string"><![CDATA[DOMContentLoaded]]></loadEventType>
+           <behaviorOnMutationEvent type="string"><![CDATA[RUN_ALWAYS]]></behaviorOnMutationEvent>
+        </index1>
+        <index2 type="customizeyourweb.Script">
+           <id type="number">3</id>
+           <actions type="customizeyourweb.ArrayList">
+              <array type="Array">
+                 <index0 type="customizeyourweb.ClickAction">
+                    <id type="number">1</id>
+                    <repetitionBehavior type="string"><![CDATA[RUN_ONCE_SUCCESSFULLY]]></repetitionBehavior>
+                    <targetDefinition type="customizeyourweb.SimpleTargetDefinition">
+                       <targetOptional type="boolean">true</targetOptional>
+                       <attributeDefinitions type="Object">
+                          <id type="string"><![CDATA[lblstockpointid1]]></id>
+                       </attributeDefinitions>
+                       <tagName type="string"><![CDATA[INPUT]]></tagName>
+                    </targetDefinition>
+                    <modifierMask type="number">0</modifierMask>
+                    <button type="string"><![CDATA[0]]></button>
+                 </index0>
+              </array>
+           </actions>
+           <disabled type="boolean">false</disabled>
+           <guiId type="string"><![CDATA[{5f714600-aecf-49d3-8815-85b3c533ebb9}]]></guiId>
+           <lastEdited type="number">1538282406317</lastEdited>
+           <name type="string"><![CDATA[]]></name>
+           <targetWinDefinition type="customizeyourweb.TargetWinDefinition">
+              <includeUrlPatterns type="customizeyourweb.ArrayList">
+                 <array type="Array">
+                    <index0 type="customizeyourweb.UrlPattern">
+                       <string type="string"><![CDATA[https://onlinebooking.sand.telangana.gov.in/Order/CustomerOrders.aspx?*]]></string>
+                    </index0>
+                 </array>
+              </includeUrlPatterns>
+              <excludeUrlPatterns type="customizeyourweb.ArrayList">
+                 <array type="Array">
+                 </array>
+              </excludeUrlPatterns>
+           </targetWinDefinition>
+           <version type="string"><![CDATA[0.4.3.5Build201304032200]]></version>
+           <loadEventType type="string"><![CDATA[DOMContentLoaded]]></loadEventType>
+           <behaviorOnMutationEvent type="string"><![CDATA[RUN_ALWAYS]]></behaviorOnMutationEvent>
+        </index2>
+     </array>
+     <version type="string"><![CDATA[0.4.3.5Build201304032200]]></version>
+  </CywScripts>
